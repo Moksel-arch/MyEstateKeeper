@@ -1,0 +1,150 @@
+/* Apply the dark background and Inter font */
+@import url('https://fonts.googleapis.com/css?family=Inter:wght@100..900&display=swap');
+body {
+    background-color: #1c2128; /* Darker gray background color (Almost black) */
+    font-family: 'Inter', sans-serif;
+    color: #f0f4f8; /* Light gray text for readability against dark background */
+}
+
+/* --- Sidebar Styles --- */
+#main-app-layout {
+    display: flex; /* Use flex to put sidebar and content side-by-side */
+    height: 100vh; /* Make the layout take up the full viewport height */
+}
+/* Updated Sidebar Styling for Mobile/Desktop */
+.sidebar {
+    width: 250px; /* Fixed width for the sidebar */
+    background-color: #1f2937; /* Very dark background for contrast */
+    color: #f0f4f8;
+    position: fixed; /* Use fixed for both mobile overlay and desktop sticky */
+    top: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto; 
+    z-index: 50; /* Ensure it is above the content and overlay */
+}
+
+/* Desktop: Override to ensure sidebar remains fixed and visible */
+@media (min-width: 1024px) {
+    /* Large screens (lg) - sidebar always visible and docked, override transform from mobile setup */
+    .sidebar {
+        transform: translate(0, 0) !important; 
+    }
+}
+/* No need for custom CSS for mobile menu, Tailwind utility classes handle the transform and visibility of the sidebar and overlay. */
+
+
+.sidebar-link {
+    display: flex;
+    align-items: center;
+    padding: 10px 15px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 500;
+    color: #d1d5db; /* Lighter text for navigation */
+    transition: background-color 0.2s, color 0.2s;
+}
+.sidebar-link:hover {
+    background-color: #374151; /* Slightly lighter dark color on hover */
+    color: #ffffff;
+}
+.active-link {
+    background-color: #3b82f6; /* Blue for the active link, matching btn-blue */
+    color: white;
+    font-weight: 600;
+}
+.active-link:hover {
+    background-color: #3b82f6; /* Keep blue on hover for active link */
+}
+
+/* Styling for the clean, white cards from the mockups */
+.card {
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    padding: 1.25rem; /* Slightly reduced padding */
+    color: #333;
+}
+/* Heading Style */
+.page-heading {
+    font-size: 2rem;
+    font-weight: 800;
+    color: #ffffff;
+    margin-bottom: 1rem; /* Reduced margin */
+}
+/* Input/Form Styles */
+input[type="text"], input[type="password"], input[type="email"],
+input[type="number"], input[type="date"], select, textarea {
+    border: 1px solid #d1d5db;
+    border-radius: 8px;
+    padding: 10px 14px;
+    width: 100%;
+    transition: border-color 0.2s, box-shadow 0.2s;
+    color: #333;
+}
+input:focus, select:focus, textarea:focus {
+    border-color: #3b82f6;
+    outline: none;
+    box-shadow: 0 0 0 1px #3b82f6;
+}
+/* Custom Button Styles based on mockups */
+.btn {
+    padding: 10px 20px; /* Reduced button padding */
+    border-radius: 8px;
+    font-weight: 600;
+    transition: background-color 0.2s, transform 0.1s;
+}
+.btn:active {
+    transform: scale(0.98);
+}
+/* Primary Blue Button (Login, Add Beneficiary, Save Profile) */
+.btn-blue {
+    background-color: #3b82f6;
+    color: white;
+}
+.btn-blue:hover { background-color: #2563eb; }
+/* Success Green Button (Add Asset) */
+.btn-green {
+    background-color: #10b981;
+    color: white;
+}
+.btn-green:hover { background-color: #059669; }
+/* Danger Red Button (Record Debt) */
+.btn-red {
+    background-color: #ef4444;
+    color: white;
+}
+.btn-red:hover { background-color: #dc2626; }
+/* Secondary Dark Button (Upload Document) */
+.btn-dark {
+    background-color: #374151;
+    color: white;
+}
+.btn-dark:hover { background-color: #1f2937; }
+/* Save Will Details Button (Purple) */
+.btn-save-will {
+    background-color: #8b5cf6;
+    color: white;
+}
+.btn-save-will:hover { background-color: #7c3aed; }
+
+/* Section visibility management */
+.page-section {
+    display: none;
+}
+.page-section.active {
+    display: block;
+}
+/* Layout for the detail pages (Form side-by-side with List/Summary) */
+.detail-page-layout {
+    display: grid;
+    grid-template-columns: 1fr; /* Default: Stack vertically on mobile */
+    gap: 1.5rem; /* Reduced gap */
+}
+/* Desktop/Tablet: 1/3 for form, 2/3 for list/summary */
+@media (min-width: 1024px) {
+    .detail-page-layout {
+        grid-template-columns: 1fr 2fr;
+    }
+}
