@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">MyEstateKeeper</string>
+    <string name="title_activity_main">MyEstateKeeper</string>
+    <string name="package_name">com.myestatekeeper.app</string>
+    <string name="custom_url_scheme">com.myestatekeeper.app</string>
+</resources>
